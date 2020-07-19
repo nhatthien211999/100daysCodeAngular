@@ -1,0 +1,23 @@
+<p>
+  Your name: {{ name }}
+</p>
+<!-- ngModel được hỗ trợ trong import { FormsModule } from '@angular/forms'; -->
+
+<input #nameInput type="text" [(ngModel)]="name">
+<button (click)="showLast = !showLast">Click me</button>
+
+<!-- viết tắt của: <input type="text" [ngModel]="name" (ngModelChange)="name = $event"> -->
+
+<!-- <app-toggle #toggleComp [(checked)]="isCheck"></app-toggle> -->
+<app-toggle [(checked)]="isCheck"></app-toggle>
+<br>
+<app-toggle [(checked)]="isCheck"></app-toggle>
+{{showLast}}
+<ng-container *ngIf="showLast">
+  {{showLast}}
+  <app-toggle [(checked)]="isCheck"></app-toggle>
+</ng-container>
+
+<div>isCheck: {{isCheck}}</div>
+
+<!-- <button #nameButton (click)="toggleComp.toggle()">Click me</button> -->

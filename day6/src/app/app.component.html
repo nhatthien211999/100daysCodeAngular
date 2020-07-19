@@ -1,0 +1,39 @@
+<div class="box red-border yellow-background" ></div>
+
+<!-- Viết Css cho đối tượng khi biết chính xác nó -->
+
+<div class="box" [class.red-border]="isDanger" [class.yellow-background]="isWarning"></div>
+
+<button (click)="isDanger = !isDanger">Toggle Danger</button>
+<button (click)="isWarning = !isWarning">Toggle Warning</button>
+<!-- Syntax: [class.<Tên class>] -->
+
+<div class="box" [class]="['red-border','yellow-background']"></div>
+
+<!-- Syntax: [class]="array" -->
+
+<div class="box" [class]="{'red-border': isDanger, 'yellow-background': isWarning}"></div>
+
+<!-- Syntax: [class]="{['tên-class': string]: boolean }" -->
+
+<div class="box" [class]="classes" ></div>
+
+<!-- Syntax: [class]="variable" -->
+
+
+<p [style.color]="'red'" [style.background-color]="'yellow'" [style.fontSize.px]="50">style text</p>
+
+<!-- 
+    [style.<Tên style>]
+    [style.<Tên style-]
+    [style.<Tên style>.unit]
+ -->
+
+ <p [style]="{color:'red', backgroundColor: 'blue', fontSize: '70px'}">Style object text</p>
+ <!-- 
+     [style]="object"
+  -->
+  <p [style]="{color: 'var(--txt-color)', backgroundColor: 'pink', fontSize: '70px'}">Style object text</p>
+  <!-- 
+      [style.css-variable]
+   -->

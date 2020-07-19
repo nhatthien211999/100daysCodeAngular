@@ -1,0 +1,14 @@
+<app-author-detail *ngFor="let author of authors" [author]="author" (select)="onSelected($event)" 
+(delete)="onDeleted($event)" (changeBG)="onChanged($event)"></app-author-detail>
+<!--(select)="onSelected($event)" select có tên trùng với @Ouput()-->
+<br>
+<div>
+    current selected Author: {{currentAuthor?.firstName}} {{currentAuthor?.lastName}}
+</div>
+<!-- app-author-detail coi như là 1 thẻ 
+dòng for in ra all phần tử có trong list sau đó hiển thị ra  
+[author]="author" cho phép hiển thị ??? 
+[author] là của  @Input() author: Author; khi phần logic thay đổi  thì nó sẽ tự cập nhập trên teamlate
+[author]="author" author là giá trị từ dòng for nó sẽ đc thay đổi và truyền cho [author] từ đó sẽ giúp chúng ta cập nhập thay 
+đổi đó và hiển thị ra 
+-->

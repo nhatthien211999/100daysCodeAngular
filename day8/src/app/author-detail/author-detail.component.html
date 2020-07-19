@@ -1,0 +1,14 @@
+<div>
+    {{author.firstName}} {{author.lastName}}
+    <button (click)="select.emit(author)">Select</button>
+    <button (click)="delete.emit(author.id)">X</button>
+    <button (click)="changeBG.emit(author.id)">BackGround</button>
+</div>
+<!-- Sau khi ta nhấn vào button, author được parse vào emit -->
+<!-- (select)="onSelected($event)" $event lúc đó nó cũng được parse vào giá trị author -->
+<!--   
+onSelected(selectAuthor: Author){
+    this.currentAuthor = selectAuthor;
+  }
+Nên ta khai báo  selectAuthor: Author nó sẽ được truyền vào giá trị từ $event
+-->

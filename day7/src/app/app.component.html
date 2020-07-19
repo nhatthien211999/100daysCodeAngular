@@ -1,0 +1,8 @@
+<app-progress-bar  [backgroundColor]="'#9e9e9e'" [progressColor]="'#2e8b57'"></app-progress-bar>
+<br>
+<app-progress-bar [backgroundColor]="'#9e9e9e'" [progressColor]="'#2e8b57'" [progress]="currentProgress"></app-progress-bar>
+<br>
+<button (click)="currentProgress = 1 + currentProgress">Click me</button>
+<app-progress-bar [backgroundColor]='bg_txt' [progressColor] = '"red"'></app-progress-bar>
+<br>
+<button (click)="bg_txt='gray'">Click</button>

@@ -1,0 +1,32 @@
+<!--Cách viết 1-->
+
+<!-- <app-hello *ngIf="user.age >= 18" [name]="user.name"></app-hello>
+
+<div *ngIf="user.age < 18">
+  <h1>Young</h1>
+</div> -->
+
+<!--Cách viết 2-->
+<app-hello *ngIf="user.age >= 18;else under18" [name]="user.name"></app-hello>
+
+<!--Viết đúng không thu gọn-->
+
+<!-- <ng-template [ngIf]="user.age >= 18" [ngIfElse]="under18">
+  <app-hello [name]="user.name"></app-hello>
+</ng-template> -->
+
+<!--Hidden-->
+
+<!-- <app-hello [hidden]="user.age <= 18" [name]="user.name"></app-hello> -->
+
+
+<ng-template #under18>
+  <div>
+    <h1>Young</h1>
+  </div>
+</ng-template>
+
+<button (click)="user.age=user.age-1">-</button>
+Age: {{user.age}}
+<button (click)="user.age=user.age+1">+</button>
+

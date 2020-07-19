@@ -1,0 +1,76 @@
+<!-- id - name -phone -->
+<!-- kiểm tra xem bạn muốn lập lại cái nào nhiều lần -->
+<!-- 
+for(let something for users){
+
+} -->
+
+<!-- Syntax Example -->
+
+ <!-- <ul>
+  <li *ngFor="let user of users">
+    {{user.id}} - {{user.name}} - {{user.phone}}
+  </li>
+</ul> -->
+
+<!-- Example -->
+
+<!-- 
+  $implicit: item : implicit context item
+  Có thể truy cập đến 1 số giá trị khác:
+  - index: số thứ tự của item hiện tại 
+  - count: độ dài của array
+  - first: boolean - kiểm tra xem đó có phải là phần tử đầu tiên không (true)
+  - last: boolean - kiểm tra xem đó có phải là phần tử cuối cùng không (true)
+  - even: nếu item ở vị trí chẵn (true)
+  - odd: nếu item ở vị trí lẻ (true)
+ -->
+
+<!-- <ul>
+  <li *ngFor="let user of users;index as idx; count as total; first as isFirst; last as isLast; even as isEven; odd as isOdd">
+    {{user.id}} - {{user.name}} - {{user.phone}}
+    <br>
+    <span>at index {{idx}} out of {{total}}</span>
+    <br>
+    <span>item is {{isEven ? "Even" : "Odd"}}</span>
+    <br>
+    <span *ngIf="isFirst">item is First</span>
+    <span *ngIf="isLast">item is last</span>
+  </li>
+</ul> -->
+
+<!-- Viết đầy đủ $implicit = user-->
+<!-- 
+<ul>
+  <ng-template ngFor [ngForOf]="users" let-user let-idx="index" let-total="count" let-isFirst="first" let-isLast="last" 
+  let-isEven="even" let-isOdd="odd">
+    {{user.id}} - {{user.name}} - {{user.phone}}
+    <br>
+    <span>at index {{idx}} out of {{total}}</span>
+    <br>
+    <span>item is {{isEven ? "Even" : "Odd"}}</span>
+    <br>
+    <span *ngIf="isFirst">item is First</span>
+    <span *ngIf="isLast">item is last</span>
+  </ng-template>
+</ul> -->
+
+<!--kết hợp vs *ngIf-->
+<ul>
+  <ng-container *ngIf="users.length>0;else noUser">
+    <li *ngFor="let user of users;index as idx; count as total; first as isFirst; last as isLast; even as isEven; odd as isOdd;
+    trackByFunction as trackById">
+      {{user.id}} - {{user.name}} - {{user.phone}}
+      <br>
+      <span>at index {{idx}} out of {{total}}</span>
+      <br>
+      <span>item is {{isEven ? "Even" : "Odd"}}</span>
+      <br>
+      <span *ngIf="isFirst">item is First</span>
+      <span *ngIf="isLast">item is last</span>
+    </li>
+  </ng-container>
+  <ng-template #noUser>
+      <span>Không có user nào</span>
+  </ng-template>
+</ul>
